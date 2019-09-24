@@ -1,0 +1,11 @@
+{
+  "name": "purge-buildscripts",
+  "version": "0.0.1",
+  "bin": "./cli.js",
+  "description": "Removes buildscript sections in locally installed React Native library packages",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/friederbluemle/purge-buildscripts.git"
+  }
+}
