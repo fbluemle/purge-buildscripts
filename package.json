@@ -1,11 +1,29 @@
 {
   "name": "purge-buildscripts",
   "version": "0.0.1",
-  "bin": "./cli.js",
   "description": "Removes buildscript sections in locally installed React Native library packages",
+  "keywords": [
+    "build.gradle",
+    "buildscript",
+    "gradle",
+    "react-native"
+  ],
+  "homepage": "https://github.com/fbluemle/purge-buildscripts",
+  "bugs": "https://github.com/fbluemle/purge-buildscripts/issues",
   "license": "MIT",
+  "author": {
+    "name": "Frieder Bluemle",
+    "email": "frieder.bluemle@gmail.com",
+    "url": "https://fbluemle.org/"
+  },
+  "contributors": [],
+  "bin": "./cli.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/friederbluemle/purge-buildscripts.git"
+    "url": "https://github.com/fbluemle/purge-buildscripts.git"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">= 8"
   }
 }
