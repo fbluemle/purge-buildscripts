@@ -1,6 +1,6 @@
 {
   "name": "purge-buildscripts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Removes buildscript sections in locally installed React Native library packages",
   "keywords": [
     "build.gradle",
