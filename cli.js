@@ -24,20 +24,27 @@ function processBuildGradle(file) {
   var inBuildscriptSection = false;
   var newBuildGradle = [];
 
-  fs.readFileSync(file, 'utf-8').split(/\r?\n/).forEach(function (line) {
-    if (line === 'buildscript {') {
-      console.log(`Removing buildscript section in ${path.relative(process.cwd(), file)}`);
-      buildscriptDetected = true;
-      inBuildscriptSection = true;
-    }
-    if (!inBuildscriptSection) {
-      newBuildGradle.push(line);
-    } else {
-      if (line === '}') {
-        inBuildscriptSection = false;
+  fs.readFileSync(file, 'utf-8')
+    .split(/\r?\n/)
+    .forEach(function (line) {
+      if (line === 'buildscript {') {
+        console.log(
+          `Removing buildscript section in ${path.relative(
+            process.cwd(),
+            file
+          )}`
+        );
+        buildscriptDetected = true;
+        inBuildscriptSection = true;
       }
-    }
-  });
+      if (!inBuildscriptSection) {
+        newBuildGradle.push(line);
+      } else {
+        if (line === '}') {
+          inBuildscriptSection = false;
+        }
+      }
+    });
   if (buildscriptDetected) {
     fs.renameSync(file, file + '.bak');
     fs.writeFileSync(file, newBuildGradle.join('\n'));
@@ -57,7 +64,9 @@ if (fs.existsSync(nodeModules) && fs.statSync(nodeModules).isDirectory()) {
       }
     });
     if (modifiedFiles > 0) {
-      console.log(`${modifiedFiles} file(s) modified. Original(s) renamed to build.gradle.bak`);
+      console.log(
+        `${modifiedFiles} file(s) modified. Original(s) renamed to build.gradle.bak`
+      );
     } else {
       console.log('No buildscript sections detected.');
     }
@@ -65,5 +74,7 @@ if (fs.existsSync(nodeModules) && fs.statSync(nodeModules).isDirectory()) {
     console.log('No build.gradle files found.');
   }
 } else {
-  console.log('Error: node_modules not found. Please run this script in the root of your app project, after installing packages.');
+  console.log(
+    'Error: node_modules not found. Please run this script in the root of your app project, after installing packages.'
+  );
 }
