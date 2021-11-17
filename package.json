@@ -1,6 +1,6 @@
 {
   "name": "purge-buildscripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Removes buildscript sections in locally installed React Native library packages",
   "bin": "./cli.js",
   "scripts": {
